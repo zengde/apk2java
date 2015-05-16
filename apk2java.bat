@@ -46,7 +46,7 @@ rmdir /s /q class
 echo *********************************************
 echo **      Extract, fix resource files        **
 echo *********************************************
-java -jar "%~dp0lib\apktool_2.0.0rc4.jar" decode -s -f *.apk -o %~dp0src\other\
+java -jar "%~dp0lib\apktool_2.0.0.jar" decode -s -f *.apk -o %~dp0src\other\
 
 echo ]                                               
 echo *********************************************
