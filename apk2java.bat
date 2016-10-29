@@ -1,9 +1,11 @@
+SET dexjarcmd=dex2jar-2.1-SNAPSHOT\lib
+SET apktoolcmd=apktool_2.2.1
 @echo off
 echo *********************************************
 echo **          Convert 'apk' to 'jar'         **
 echo *********************************************
 set CLASSPATH=
-FOR %%i IN ("%~dp0lib\dex2jar-0.0.9.15\*.jar") DO CALL "%~dp0lib\setclasspath.bat" %%i
+FOR %%i IN ("%~dp0lib\%dexjarcmd%\*.jar") DO CALL "%~dp0lib\setclasspath.bat" %%i
 java -Xms512m -Xmx1024m -cp %CLASSPATH% "com.googlecode.dex2jar.tools.Dex2jarCmd" %*
 
 cd /d %~dp0
@@ -46,7 +48,7 @@ rmdir /s /q class
 echo *********************************************
 echo **      Extract, fix resource files        **
 echo *********************************************
-java -jar "%~dp0lib\apktool_2.0.0.jar" decode -s -f *.apk -o %~dp0src\other\
+java -jar "%~dp0lib\%apktoolcmd%.jar" decode -s -f *.apk -o %~dp0src\other\
 
 echo ]                                               
 echo *********************************************
